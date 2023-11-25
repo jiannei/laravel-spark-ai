@@ -1,0 +1,29 @@
+{
+    "name": "jiannei/laravel-spark-ai",
+    "description": "Spark ai adapter for laravel.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jiannei",
+            "email": "longjian.huang@foxmail.com"
+        }
+    ],
+    "require": {
+        "jiannei/spark-ai": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jiannei\\LaravelSparkAi\\": "src"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.15"
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "SparkAi": "Jiannei\\LaravelSparkAi\\Support\\Facades\\SparkAi"
+            }
+        }
+    }
+}
