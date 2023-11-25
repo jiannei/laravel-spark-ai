@@ -2,6 +2,7 @@
 
 <p align="center"> Spark ai adapter for laravel..</p>
 
+[![StyleCI](https://github.styleci.io/repos/723293905/shield?branch=main&style=flat)](https://github.styleci.io/repos/723293905?branch=main&style=flat)
 
 ## Installing
 
