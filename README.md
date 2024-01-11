@@ -1,6 +1,6 @@
 <h1 align="center"> laravel-spark-ai </h1>
 
-<p align="center"> Spark ai adapter for laravel..</p>
+> 讯飞星火大模型非官方 SDK.
 
 [![StyleCI](https://github.styleci.io/repos/723293905/shield?branch=main&style=flat)](https://github.styleci.io/repos/723293905?branch=main&style=flat)
 [![Latest Stable Version](http://poser.pugx.org/jiannei/laravel-spark-ai/v)](https://packagist.org/packages/jiannei/laravel-spark-ai)
@@ -8,25 +8,71 @@
 [![Latest Unstable Version](http://poser.pugx.org/jiannei/laravel-spark-ai/v/unstable)](https://packagist.org/packages/jiannei/laravel-spark-ai)
 [![License](http://poser.pugx.org/jiannei/laravel-spark-ai/license)](https://packagist.org/packages/jiannei/laravel-spark-ai) 
 
-## Installing
+## 介绍
+
+- [星火大模型 API 免费套餐](https://xinghuo.xfyun.cn/sparkapi?scr=price)
+- [官方文档](https://www.xfyun.cn/doc/spark/Web.html)
+
+
+## 安装
 
 ```shell
 $ composer require jiannei/laravel-spark-ai -vvv
 ```
 
-## Usage
+## 配置
 
-TODO
+在[控制台](https://console.xfyun.cn/services/bm3)获取服务接口认证信息：APPID、APISecret、APIKey
 
-## Contributing
+在 `config/services.php` 中添加配置参数
 
-You can contribute in one of three ways:
+```php
+// config/services.php
+'xfyun' => [
+    // 密钥信息，在开放平台-控制台中获取：https://console.xfyun.cn/services/cbm
+    'url' => env('XFYUN_URL'),
+    'app_id' => env('XFYUN_APP_ID'),
+    'api_key' => env('XFYUN_API_KEY'),
+    'api_secret' => env('XFYUN_API_SECRET'),
+],
+```
 
-1. File bug reports using the [issue tracker](https://github.com/jiannei/laravel-spark-ai/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/jiannei/laravel-spark-ai/issues).
-3. Contribute new features or update the wiki.
+在 `.env`中填入前面获取的参数信息
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+```
+XFYUN_URL=
+XFYUN_APP_ID=
+XFYUN_API_KEY=
+XFYUN_API_SECRET=
+```
+
+## 使用
+
+- 流式输出
+
+```php
+use Jiannei\LaravelSparkAi\Support\Facades\SparkAi;
+
+
+$answer = SparkAi::chat()->create('你是谁？');
+
+foreach ($answer as $item) {
+    print_r($item);
+}
+```
+
+![answer](https://raw.githubusercontent.com/jiannei/snc-pro/master/images/202401101917408.gif)
+
+- 完整输出
+
+```php
+use Jiannei\LaravelSparkAi\Support\Facades\SparkAi;
+
+
+$answer = SparkAi::chat()->answer('你是谁？');
+
+print_r($answer);
+```
 
 ## License
 
