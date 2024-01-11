@@ -8,9 +8,6 @@
             "email": "longjian.huang@foxmail.com"
         }
     ],
-    "require": {
-        "jiannei/spark-ai": "dev-main"
-    },
     "autoload": {
         "psr-4": {
             "Jiannei\\LaravelSparkAi\\": "src"
@@ -21,9 +18,15 @@
     },
     "extra": {
         "laravel": {
+            "providers": [
+                "Jiannei\\LaravelSparkAi\\Providers\\LaravelServiceProvider"
+            ],
             "aliases": {
                 "SparkAi": "Jiannei\\LaravelSparkAi\\Support\\Facades\\SparkAi"
             }
         }
+    },
+    "require": {
+        "jiannei/spark-ai": "^1.0"
     }
 }
