@@ -28,13 +28,18 @@ $ composer require jiannei/laravel-spark-ai -vvv
 
 ```php
 // config/services.php
-'xfyun' => [
-    // 密钥信息，在开放平台-控制台中获取：https://console.xfyun.cn/services/cbm
-    'url' => env('XFYUN_URL'),
-    'app_id' => env('XFYUN_APP_ID'),
-    'api_key' => env('XFYUN_API_KEY'),
-    'api_secret' => env('XFYUN_API_SECRET'),
-],
+<?php
+
+return [
+    // ...
+    'xfyun' => [
+        // 密钥信息，在开放平台-控制台中获取：https://console.xfyun.cn/services/cbm
+        'url' => env('XFYUN_URL'),
+        'app_id' => env('XFYUN_APP_ID'),
+        'api_key' => env('XFYUN_API_KEY'),
+        'api_secret' => env('XFYUN_API_SECRET'),
+    ],
+];
 ```
 
 在 `.env`中填入前面获取的参数信息
